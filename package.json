@@ -1,0 +1,60 @@
+{
+  "name": "tdd-class",
+  "version": "0.0.1",
+  "description": "Learning TDD",
+  "author": {
+    "name": "Leszek Pietrzak",
+    "email": "smutnyleszek@gmail.com"
+  },
+  "private": true,
+  "homepage": "https://github.com/smutnyleszek/tdd",
+  "repository": "git@github.com:smutnyleszek/tdd.git",
+  "bugs": "https://github.com/smutnyleszek/tdd/issues",
+  "watch": {
+    "_buildScripts": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js",
+      "quiet": false
+    }
+  },
+  "scripts": {
+    "test": "npm-run-all _testStyles _testScripts",
+    "lint": "npm run _lintScripts",
+    "prepublish": "npm-run-all _clearDist test _copyTemplates _copyStyles _buildScripts _uglifyScripts",
+    "watch": "npm-watch",
+    "_clearDist": "rm -rf dist && mkdir dist && mkdir dist/scripts && mkdir dist/templates",
+    "_copyTemplates": "cp src/templates/base.html.twig dist/templates/gog-module-boilerplate.html.twig",
+    "_copyStyles": "cp -r src/styles/ dist/styles/",
+    "_testStyles": "node-sass src/styles/_base.scss --output .sass-temp --include-path src/styles && rm -rf .sass-temp",
+    "_buildScripts": "babel src/scripts --out-file dist/scripts/gog-module-boilerplate.js",
+    "_uglifyScripts": "uglifyjs dist/scripts/gog-module-boilerplate.js --output dist/scripts/gog-module-boilerplate.min.js --compress --enclose --keep-fnames --mangle-props 0",
+    "_testScripts": "karma start karma.conf.js",
+    "_lintScripts": "eslint src/**/*.js --config .eslintrc.json"
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "angular-mocks": "^1.5.7",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
+    "babel-plugin-iife-wrap": "^1.1.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^3.1.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-spec-reporter": "0.0.26",
+    "node-sass": "^3.8.0",
+    "npm-run-all": "^2.3.0",
+    "npm-watch": "^0.1.5",
+    "phantomjs-polyfill": "0.0.2",
+    "phantomjs-prebuilt": "^2.1.7",
+    "uglify-js": "^2.7.0"
+  }
+}

@@ -1,0 +1,6 @@
+.sass-cache/
+.sass-temp/
+Thumbs.db
+
+# keep dist on npm server
+!dist/

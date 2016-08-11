@@ -1,0 +1,9 @@
+.sass-cache/
+.sass-temp/
+node_modules/
+.DS_store
+Thumbs.db
+npm-debug.log
+
+# don't keep dist on git repo
+dist/
