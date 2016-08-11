@@ -4,11 +4,7 @@
         "es6": true,
         "jasmine": true
     },
-    "globals": {
-        "angular": true,
-        "module": true,
-        "inject": true
-    },
+    "globals": {},
     "parserOptions": {
         "ecmaVersion": 6,
         "ecmaFeatures": {

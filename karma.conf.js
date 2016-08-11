@@ -17,22 +17,19 @@ module.exports = function (config) {
         browsers: ['PhantomJS'],
 
         files: [
-            './node_modules/angular/angular.min.js',
-            './node_modules/angular-mocks/angular-mocks.js',
-            'src/scripts/**/*.js',
+            'src/**/*.js',
 
             './node_modules/phantomjs-polyfill/bind-polyfill.js',
             './node_modules/babel-polyfill/dist/polyfill.min.js',
-            'test/scripts/init.js',
-            'test/scripts/**/*Spec.js'
+            'test/**/*Spec.js'
         ],
         exclude: [],
 
         // preprocess matching files before serving them to the browser
         // https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'src/scripts/**/*.js': ['babel', 'coverage'],
-            'test/scripts/**/*Spec.js': ['babel']
+            'src/**/*.js': ['babel', 'coverage'],
+            'test/**/*Spec.js': ['babel']
         },
 
         coverageReporter: {
